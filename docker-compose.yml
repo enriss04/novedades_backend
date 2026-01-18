@@ -1,0 +1,25 @@
+services:
+  novedades_back:
+    image: laravel-novedades:1.0.0
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: novedades
+    restart: always
+    ports:
+      - "8095:80"
+    networks:
+      - mysql_devsmex_net
+      - net-tecnomex
+    volumes:
+      - /home/proyectos_devsmex/logs:/var/www/html/storage/logs
+    environment:
+      - APP_ENV=production
+      - APP_DEBUG=false
+      - TZ=America/Mexico_City
+
+networks:
+  mysql_devsmex_net:
+    external: true
+  net-tecnomex:
+    external: true

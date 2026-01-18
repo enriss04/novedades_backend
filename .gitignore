@@ -1,0 +1,44 @@
+# --- Laravel ---
+/vendor/
+node_modules/
+public/storage
+public/hot
+storage/*.key
+.phpunit.result.cache
+
+# --- Entorno y Secretos (VITAL) ---
+.env
+.env.backup
+.env.production
+.php_cs.cache
+auth.json
+
+# --- Docker ---
+# Si usas certificados locales o logs de Docker fuera del contenedor
+.docker/
+docker-compose.override.yml
+
+# --- Herramientas de Desarrollo ---
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+
+# --- Logs y Cache de Laravel ---
+storage/framework/cache/data/*
+storage/framework/sessions/*
+storage/framework/testing/*
+storage/framework/views/*
+storage/logs/*
+
+# No ignores los archivos .gitignore o .gitkeep dentro de estas carpetas 
+# para que la estructura de carpetas se mantenga en Git
+!storage/framework/cache/data/.gitkeep
+!storage/framework/sessions/.gitkeep
+!storage/framework/testing/.gitkeep
+!storage/framework/views/.gitkeep
+!storage/logs/.gitkeep
