@@ -1,5 +1,4 @@
 # .dockerignore
 .git
-.env
 node_modules
 vendor
