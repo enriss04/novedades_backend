@@ -13,7 +13,7 @@ link:
 	docker exec -u root novedades php artisan storage:link
 
 migrate:
-	docker exec novedades php artisan migrate
+	docker exec novedades php artisan migrate --force
 
 deploy: build up cache
 
