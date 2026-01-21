@@ -15,8 +15,7 @@ link:
 migrate: 
 	docker exec novedades php artisan migrate --force
 
-deploy: 
-	build up cache
+deploy: build up cache
 
 refresh: 
 	docker exec novedades php artisan migrate:refresh --force
