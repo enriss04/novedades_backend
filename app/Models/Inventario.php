@@ -22,7 +22,7 @@ class Inventario
 
             $object = DB::table(self::$table_join);
             $object->select([
-                DB::raw("CONCAT(modelo, ' - ', tipo) AS name"),
+                DB::raw("CONCAT(inventario_id, ' - ', modelo) AS name"),
                 'inventario_id AS code',
                 'precio_mayoreo',
                 'precio_menudeo',
