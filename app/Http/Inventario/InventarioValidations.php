@@ -17,20 +17,20 @@ class InventarioValidations {
         $validatedData = $request->validate(
         [
             'inventario_id'   => 'required|string',
-            'talla'         => 'required|string',
-            'color'         => 'required|string',
-            'modelo'        => 'required|string',
             'tipo'          => 'required|string',
-            'precio_mayoreo'    => 'required|numeric',
-            'precio_menudeo'    => 'required|numeric',  
         ]);
 
         $data = (object)$validatedData;        
-        $data->url          = SaveFile::byRequest($request->file('archivo'), "inventario/$data->inventario_id");
+        $data->url      = SaveFile::byRequest($request->file('archivo'), "inventario/$data->inventario_id");
+        $data->talla    = $request->talla ?? '';
+        $data->color    = $request->color ?? '';
+        $data->modelo   = $request->modelo ?? '';
+        $data->salida   = $request->salida ?? 0;
+        $data->ingreso  = $request->ingreso ?? 0;
         $data->existencia   = $request->existencia ?? 0;
-        $data->ingreso      = $request->ingreso ?? 0;
-        $data->salida       = $request->salida ?? 0;
         $data->devoluciones = $request->devoluciones ?? 0;
+        $data->precio_mayoreo   = $request->precio_mayoreo === 'null' ? 0 : $request->precio_mayoreo;
+        $data->precio_menudeo   = $request->precio_menudeo === 'null' ? 0 : $request->precio_menudeo;
 
         createInventario::save($data);
     }
@@ -40,17 +40,21 @@ class InventarioValidations {
         
         $validatedData = $request->validate(
         [
-            'inventario_id'   => 'required|string',
-            'talla'         => 'required|string',
-            'color'         => 'required|string',
-            'modelo'        => 'required|string',
+            'inventario_id' => 'required|string',
             'tipo'          => 'required|string',
-            'precio_mayoreo'    => 'required|numeric',
-            'precio_menudeo'    => 'required|numeric',           
         ]);
 
         $data = (object)$validatedData;
         $data->url          = SaveFile::byRequest($request->file('archivo'), "inventario/$data->inventario_id");
+        $data->talla    = $request->talla ?? '';
+        $data->color    = $request->color ?? '';
+        $data->modelo   = $request->modelo ?? '';
+        $data->salida   = $request->salida ?? 0;
+        $data->ingreso  = $request->ingreso ?? 0;
+        $data->existencia   = $request->existencia ?? 0;
+        $data->devoluciones = $request->devoluciones ?? 0;
+        $data->precio_mayoreo   = $request->precio_mayoreo === 'null' ? 0 : $request->precio_mayoreo;
+        $data->precio_menudeo   = $request->precio_menudeo === 'null' ? 0 : $request->precio_menudeo;
 
         updateInventario::update($data);
        

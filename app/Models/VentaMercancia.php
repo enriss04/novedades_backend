@@ -41,7 +41,7 @@ class VentaMercancia
             $object = DB::table(self::$table_join);
             $object->leftjoin('inventario AS I', 'VM.inventario_id', '=', 'I.inventario_id');
             $columns = self::$columns_join;
-            $columns[] = DB::raw("CONCAT(I.modelo, ' - ', I.tipo) AS mercancia_nombre");
+            $columns[] = DB::raw("CONCAT(I.inventario_id, ' - ', I.tipo, ' - ', I.modelo) AS mercancia_nombre");
             $object->select(
                 $columns
             );

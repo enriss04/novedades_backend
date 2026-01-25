@@ -22,6 +22,10 @@ class updateInventario{
                     "modelo"    => $data->modelo,
                     "tipo"      => $data->tipo,              
                     "url"           => $data->url,
+                    "existencia"    => $data->existencia,
+                    "ingreso"       => $data->ingreso,
+                    "salida"        => $data->salida,
+                    "devoluciones"  => $data->devoluciones,
                     "precio_mayoreo"    => $data->precio_mayoreo,
                     "precio_menudeo"    => $data->precio_menudeo,
                 ]
