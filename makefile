@@ -4,6 +4,9 @@ build:
 up: 
 	docker compose up -d
 
+prune_images: 
+	docker image prune -f
+	
 cache:
 	docker exec novedades php artisan config:cache
 	docker exec novedades php artisan route:cache
@@ -15,7 +18,7 @@ link:
 migrate: 
 	docker exec novedades php artisan migrate --force
 
-deploy: build up cache
+deploy: build up cache prune_images
 
 refresh: 
 	docker exec novedades php artisan migrate:refresh --force
